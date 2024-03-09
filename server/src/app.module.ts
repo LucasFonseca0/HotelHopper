@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { HotelModule } from './hotel/hotel.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { UserModule } from './user/user.module';
 
 
 @Module({
-  imports: [HotelModule],
+  imports: [MongooseModule.forRoot(process.env.DB_URI), UserModule],
   controllers: [],
   providers: [],
 })
 export class AppModule {}
- 
