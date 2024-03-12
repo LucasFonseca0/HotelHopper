@@ -6,13 +6,14 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 
 import { AppController } from './app.controller';
+import { HotelModule } from './hotel/hotel.module';
 
 
 
 require('dotenv').config();
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.DB_URI), AuthModule, UserModule],
+  imports: [MongooseModule.forRoot(process.env.DB_URI), AuthModule, UserModule, HotelModule],
   controllers: [AppController],
   providers:[ 
     {

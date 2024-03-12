@@ -4,6 +4,7 @@ import { UserService } from './user.service';
 import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 
 @Controller('user')
+@IsPublic()
 export class UserController {
   constructor(private readonly userService: UserService) {}
   @Post()

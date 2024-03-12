@@ -22,6 +22,5 @@ export class CreateUserDto extends User {
 
   @IsString()
   name: string;
-  @IsBoolean()
-  isAdmin: boolean;
+
 }

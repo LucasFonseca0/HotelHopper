@@ -18,7 +18,7 @@ config();
       signOptions: { expiresIn: '30d' },
     }),
   ],
-})
+}) 
 export class AuthModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoginValidationMiddleware).forRoutes('login');
