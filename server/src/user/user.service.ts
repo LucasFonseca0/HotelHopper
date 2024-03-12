@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { User, UserDocument } from './entities/user.entity';
 
 @Injectable()
+
 export class UserService {
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
-  }
+  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-  findAll() {
-    return `This action returns all user`;
-  }
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    try {
+      const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+      const createdUser = new this.userModel({
+        ...createUserDto,
+        password: hashedPassword,
+        isAdmin:false
+      });
+      await createdUser.save();
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+      return {
+        ...createdUser.toObject(),
+        password: undefined,
+      };
+    } catch (error) {
+      console.error('Error during user creation:', error);
+      throw error;
+    }
   }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+ 
+  findByEmail(email: string) { 
+    return this.userModel.findOne({ email }).exec();
   }
 }
