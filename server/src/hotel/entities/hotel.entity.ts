@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
 
 
 export type HotelDocument = Hotel & Document;
@@ -9,6 +9,7 @@ interface rooms {
     type:string
     price:number
     amenities : []
+    capacity: number
 }
 
 @Schema()
@@ -27,10 +28,10 @@ export class Hotel {
 
   @Prop({  required:false })
   rating:number
-  @Prop({  required:true })
+  @Prop({  required:true }) 
   rooms :rooms[]
-
-  
+  @Prop({  required:true })
+  user : ObjectId 
 }
 
 export const HotelSchema = SchemaFactory.createForClass(Hotel);
