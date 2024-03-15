@@ -13,10 +13,15 @@ class RoomDto {
   price: number;
 
   @IsArray()
-  amenities: string[]; 
+  amenities?: string[]; 
 
   @IsNumber()
   capacity: number;
+ @IsArray()
+  imagesURI?:string[]
+
+ @IsString()
+  description?:string
 }
 
 export class CreateHotelDto {

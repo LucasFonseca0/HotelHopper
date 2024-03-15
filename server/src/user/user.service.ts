@@ -31,6 +31,6 @@ export class UserService {
   }
  
   findByEmail(email: string) { 
-    return this.userModel.findOne({ email }).exec();
+    return this.userModel.findOne({ email }).exec(); 
   }
 }

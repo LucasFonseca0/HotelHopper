@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { HotelService } from './hotel.service';
 import { CreateHotelDto } from './dto/create-hotel.dto';
 import { UpdateHotelDto } from './dto/update-hotel.dto';
+import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 
 @Controller('hotel')
 export class HotelController {
@@ -12,6 +13,7 @@ export class HotelController {
     return this.hotelService.create(createHotelDto);
   }
 
+  @IsPublic()
   @Get()
   findAll() {
     return this.hotelService.findAll();

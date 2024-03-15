@@ -1,0 +1,812 @@
+[
+  {
+    "name": "Hotel Europa",
+    "location": "Rua Europa, 123",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "rating": 4.5,
+    "rooms": [
+      {
+        "room_number": "101",
+        "type": "Standard",
+        "price": 100,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI1.jpg", "imageURI2.jpg"],
+        "description": "A cozy hotel located in the heart of Lisbon."
+      },
+      {
+        "room_number": "102",
+        "type": "Suite",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi"],
+        "capacity": 4,
+        "imagesURI": ["imageURI3.jpg", "imageURI4.jpg"],
+        "description": "A luxurious suite with stunning city views."
+      }
+    ]
+  },
+  {
+    "name": "Grand Hotel Paris",
+    "location": "Avenue des Champs-Élysées, 456",
+    "city": "Paris",
+    "country": "France",
+    "rating": 4.8,
+    "rooms": [
+      {
+        "room_number": "201",
+        "type": "Deluxe",
+        "price": 300,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI5.jpg", "imageURI6.jpg"],
+        "description": "An elegant hotel situated near the iconic avenue."
+      },
+      {
+        "room_number": "202",
+        "type": "Suite",
+        "price": 500,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Balcony"],
+        "capacity": 4,
+        "imagesURI": ["imageURI7.jpg", "imageURI8.jpg"],
+        "description": "A spacious suite offering panoramic city views."
+      }
+    ]
+  },
+  {
+    "name": "Berlin Palace Hotel",
+    "location": "Unter den Linden, 77",
+    "city": "Berlin",
+    "country": "Germany",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "301",
+        "type": "Standard",
+        "price": 150,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Gym"],
+        "capacity": 2,
+        "imagesURI": ["imageURI9.jpg", "imageURI10.jpg"],
+        "description": "A modern hotel in the vibrant city of Berlin."
+      },
+      {
+        "room_number": "302",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Sauna"],
+        "capacity": 4,
+        "imagesURI": ["imageURI11.jpg", "imageURI12.jpg"],
+        "description": "A luxurious suite with wellness facilities."
+      }
+    ]
+  },
+  {
+    "name": "Rome Luxury Suites",
+    "location": "Via Condotti, 123",
+    "city": "Rome",
+    "country": "Italy",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "401",
+        "type": "Deluxe",
+        "price": 250,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Balcony"],
+        "capacity": 3,
+        "imagesURI": ["imageURI13.jpg", "imageURI14.jpg"],
+        "description": "A luxurious accommodation in historic Rome."
+      },
+      {
+        "room_number": "402",
+        "type": "Suite",
+        "price": 600,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Terrace"],
+        "capacity": 4,
+        "imagesURI": ["imageURI15.jpg", "imageURI16.jpg"],
+        "description": "A suite with panoramic terrace overlooking the city."
+      }
+    ]
+  },
+  {
+    "name": "Amsterdam Grand Hotel",
+    "location": "Herengracht, 456",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "501",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI17.jpg", "imageURI18.jpg"],
+        "description": "A modern hotel along the famous canal."
+      },
+      {
+        "room_number": "502",
+        "type": "Suite",
+        "price": 350,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Canal view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI19.jpg", "imageURI20.jpg"],
+        "description": "A luxurious suite with picturesque canal view."
+      }
+    ]
+  },
+  {
+    "name": "Vienna Palace Hotel",
+    "location": "Ringstraße, 789",
+    "city": "Vienna",
+    "country": "Austria",
+    "rating": 4.9,
+    "rooms": [
+      {
+        "room_number": "601",
+        "type": "Deluxe",
+        "price": 280,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI21.jpg", "imageURI22.jpg"],
+        "description": "An opulent hotel offering relaxation and luxury."
+      },
+      {
+        "room_number": "602",
+        "type": "Suite",
+        "price": 550,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Mountain view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI23.jpg", "imageURI24.jpg"],
+        "description": "A suite with breathtaking mountain view."
+      }
+    ]
+  },
+  {
+    "name": "Madrid Luxury Hotel",
+    "location": "Gran Vía, 987",
+    "city": "Madrid",
+    "country": "Spain",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "701",
+        "type": "Standard",
+        "price": 170,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Fitness center"],
+        "capacity": 2,
+        "imagesURI": ["imageURI25.jpg", "imageURI26.jpg"],
+        "description": "A luxurious retreat in the vibrant city of Madrid."
+      },
+      {
+        "room_number": "702",
+        "type": "Suite",
+        "price": 380,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Balcony"],
+        "capacity": 4,
+        "imagesURI": ["imageURI27.jpg", "imageURI28.jpg"],
+        "description": "A spacious suite offering breathtaking city views."
+      }
+    ]
+  },
+  {
+    "name": "London Regency Hotel",
+    "location": "Regent Street, 789",
+    "city": "London",
+    "country": "United Kingdom",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "801",
+        "type": "Standard",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Gym"],
+        "capacity": 2,
+        "imagesURI": ["imageURI29.jpg", "imageURI30.jpg"],
+        "description": "A sophisticated hotel in the heart of London."
+      },
+      {
+        "room_number": "802",
+        "type": "Suite",
+        "price": 450,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI31.jpg", "imageURI32.jpg"],
+        "description": "A luxurious suite with stunning city views."
+      }
+    ]
+  },
+  {
+    "name": "Athens Riverview Hotel",
+    "location": "Aiolou, 654",
+    "city": "Athens",
+    "country": "Greece",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "901",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI33.jpg", "imageURI34.jpg"],
+        "description": "A modern hotel offering stunning views of the river."
+      },
+      {
+        "room_number": "902",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "River view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI35.jpg", "imageURI36.jpg"],
+        "description": "A luxurious suite with panoramic river view."
+      }
+    ]
+  },
+  {
+    "name": "Edinburgh Castle Hotel",
+    "location": "Castlehill, 321",
+    "city": "Edinburgh",
+    "country": "Scotland",
+    "rating": 4.8,
+    "rooms": [
+      {
+        "room_number": "1001",
+        "type": "Deluxe",
+        "price": 300,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI37.jpg", "imageURI38.jpg"],
+        "description": "A luxurious hotel near the historic Edinburgh Castle."
+      },
+      {
+        "room_number": "1002",
+        "type": "Suite",
+        "price": 650,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI39.jpg", "imageURI40.jpg"],
+        "description": "A suite with stunning views of the city."
+      }
+    ]
+  },
+  {
+    "name": "Dublin Riverside Hotel",
+    "location": "Custom House Quay, 456",
+    "city": "Dublin",
+    "country": "Ireland",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "1101",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI41.jpg", "imageURI42.jpg"],
+        "description": "A modern hotel overlooking the scenic River Liffey."
+      },
+      {
+        "room_number": "1102",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "River view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI43.jpg", "imageURI44.jpg"],
+        "description": "A luxurious suite with breathtaking river views."
+      }
+    ]
+  },
+  {
+    "name": "Brussels Grand Palace Hotel",
+    "location": "Rue Montagne du Parc, 789",
+    "city": "Brussels",
+    "country": "Belgium",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "1201",
+        "type": "Standard",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI45.jpg", "imageURI46.jpg"],
+        "description": "A modern hotel in the heart of Brussels."
+      },
+      {
+        "room_number": "1202",
+        "type": "Suite",
+        "price": 450,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI47.jpg", "imageURI48.jpg"],
+        "description": "A luxurious suite with panoramic city views."
+      }
+    ]
+  },
+  {
+    "name": "Moscow Kremlin Hotel",
+    "location": "Kremlin Embankment, 123",
+    "city": "Moscow",
+    "country": "Russia",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "1301",
+        "type": "Deluxe",
+        "price": 250,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI49.jpg", "imageURI50.jpg"],
+        "description": "A luxurious hotel near the iconic Moscow Kremlin."
+      },
+      {
+        "room_number": "1302",
+        "type": "Suite",
+        "price": 600,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Kremlin view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI51.jpg", "imageURI52.jpg"],
+        "description": "A suite with stunning views of the Kremlin."
+      }
+    ]
+  },
+  {
+    "name": "Bucharest Riverside Hotel",
+    "location": "Bulevardul Unirii, 654",
+    "city": "Bucharest",
+    "country": "Romania",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "1401",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI53.jpg", "imageURI54.jpg"],
+        "description": "A modern hotel offering scenic views of the river."
+      },
+      {
+        "room_number": "1402",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "River view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI55.jpg", "imageURI56.jpg"],
+        "description": "A luxurious suite with breathtaking river views."
+      }
+    ]
+  },
+  {
+    "name": "Oslo Fjord Hotel",
+    "location": "Dronning Eufemias gate, 456",
+    "city": "Oslo",
+    "country": "Norway",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "1501",
+        "type": "Standard",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI57.jpg", "imageURI58.jpg"],
+        "description": "A modern hotel offering stunning views of the fjord."
+      },
+      {
+        "room_number": "1502",
+        "type": "Suite",
+        "price": 450,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Fjord view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI59.jpg", "imageURI60.jpg"],
+        "description": "A luxurious suite with panoramic fjord views."
+      }
+    ]
+  },
+  {
+    "name": "Stockholm Royal Hotel",
+    "location": "Vasagatan, 789",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "1601",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI61.jpg", "imageURI62.jpg"],
+        "description": "A modern hotel located in the heart of Stockholm."
+      },
+      {
+        "room_number": "1602",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI63.jpg", "imageURI64.jpg"],
+        "description": "A luxurious suite offering panoramic city views."
+      }
+    ]
+  },
+  {
+    "name": "Copenhagen Harbor Hotel",
+    "location": "Nyhavn, 654",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "1701",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI65.jpg", "imageURI66.jpg"],
+        "description": "A modern hotel offering picturesque views of the harbor."
+      },
+      {
+        "room_number": "1702",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Harbor view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI67.jpg", "imageURI68.jpg"],
+        "description": "A luxurious suite with breathtaking harbor views."
+      }
+    ]
+  },
+  {
+    "name": "Helsinki Lakeside Hotel",
+    "location": "Katajanokka, 456",
+    "city": "Helsinki",
+    "country": "Finland",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "1801",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI69.jpg", "imageURI70.jpg"],
+        "description": "A modern hotel offering scenic views of the lakeside."
+      },
+      {
+        "room_number": "1802",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Lakeside view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI71.jpg", "imageURI72.jpg"],
+        "description": "A luxurious suite with breathtaking lakeside views."
+      }
+    ]
+  },
+  {
+    "name": "Zurich Grand Hotel",
+    "location": "Bahnhofstrasse, 789",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "1901",
+        "type": "Deluxe",
+        "price": 250,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI73.jpg", "imageURI74.jpg"],
+        "description": "An opulent hotel offering relaxation and luxury."
+      },
+      {
+        "room_number": "1902",
+        "type": "Suite",
+        "price": 550,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Mountain view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI75.jpg", "imageURI76.jpg"],
+        "description": "A suite with breathtaking mountain view."
+      }
+    ]
+  },
+  {
+    "name": "Ljubljana Riverside Hotel",
+    "location": "Breg, 123",
+    "city": "Ljubljana",
+    "country": "Slovenia",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "2001",
+        "type": "Deluxe",
+        "price": 280,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "River view"],
+        "capacity": 3,
+        "imagesURI": ["imageURI77.jpg", "imageURI78.jpg"],
+        "description": "An elegant hotel located by the picturesque river."
+      },
+      {
+        "room_number": "2002",
+        "type": "Suite",
+        "price": 700,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "River view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI79.jpg", "imageURI80.jpg"],
+        "description": "A luxurious suite with stunning river views."
+      }
+    ]
+  },
+  {
+    "name": "Warsaw Royal Hotel",
+    "location": "Krakowskie Przedmieście, 789",
+    "city": "Warsaw",
+    "country": "Poland",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "2101",
+        "type": "Deluxe",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 3,
+        "imagesURI": ["imageURI81.jpg", "imageURI82.jpg"],
+        "description": "A luxurious hotel located in the historic city center."
+      },
+      {
+        "room_number": "2102",
+        "type": "Suite",
+        "price": 500,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI83.jpg", "imageURI84.jpg"],
+        "description": "A suite offering panoramic views of the city."
+      }
+    ]
+  },
+  {
+    "name": "Kyiv City Center Hotel",
+    "location": "Khreshchatyk, 123",
+    "city": "Kyiv",
+    "country": "Ukraine",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "2201",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI85.jpg", "imageURI86.jpg"],
+        "description": "A modern hotel located in the heart of Kyiv."
+      },
+      {
+        "room_number": "2202",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI87.jpg", "imageURI88.jpg"],
+        "description": "A luxurious suite with stunning city views."
+      }
+    ]
+  },
+  {
+    "name": "Belgrade Riverfront Hotel",
+    "location": "Karađorđeva, 456",
+    "city": "Belgrade",
+    "country": "Serbia",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "2301",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI89.jpg", "imageURI90.jpg"],
+        "description": "A modern hotel offering picturesque views of the river."
+      },
+      {
+        "room_number": "2302",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "River view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI91.jpg", "imageURI92.jpg"],
+        "description": "A luxurious suite with breathtaking river views."
+      }
+    ]
+  },
+  {
+    "name": "Budapest Grand Hotel",
+    "location": "Erzsébet körút, 789",
+    "city": "Budapest",
+    "country": "Hungary",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "2401",
+        "type": "Deluxe",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI93.jpg", "imageURI94.jpg"],
+        "description": "An opulent hotel offering relaxation and luxury."
+      },
+      {
+        "room_number": "2402",
+        "type": "Suite",
+        "price": 500,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "City view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI95.jpg", "imageURI96.jpg"],
+        "description": "A suite with stunning views of the city."
+      }
+    ]
+  },
+  {
+    "name": "Sofia Mountainview Hotel",
+    "location": "bul. Cherni vrah, 456",
+    "city": "Sofia",
+    "country": "Bulgaria",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "2501",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI97.jpg", "imageURI98.jpg"],
+        "description": "A modern hotel offering scenic views of the mountains."
+      },
+      {
+        "room_number": "2502",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Mountain view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI99.jpg", "imageURI100.jpg"],
+        "description": "A luxurious suite with breathtaking mountain views."
+      }
+    ]
+  },
+  {
+    "name": "Lisbon Oceanfront Hotel",
+    "location": "Av. Brasília, 789",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "2601",
+        "type": "Standard",
+        "price": 200,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI101.jpg", "imageURI102.jpg"],
+        "description": "A modern hotel offering scenic views of the ocean."
+      },
+      {
+        "room_number": "2602",
+        "type": "Suite",
+        "price": 450,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Ocean view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI103.jpg", "imageURI104.jpg"],
+        "description": "A luxurious suite with breathtaking ocean views."
+      }
+    ]
+  },
+  {
+    "name": "Barcelona Beachfront Hotel",
+    "location": "Passeig Marítim, 456",
+    "city": "Barcelona",
+    "country": "Spain",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "2701",
+        "type": "Standard",
+        "price": 220,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI105.jpg", "imageURI106.jpg"],
+        "description": "A modern hotel offering scenic views of the beach."
+      },
+      {
+        "room_number": "2702",
+        "type": "Suite",
+        "price": 500,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Beach view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI107.jpg", "imageURI108.jpg"],
+        "description": "A luxurious suite with breathtaking beach views."
+      }
+    ]
+  },
+  {
+    "name": "Nice Riviera Hotel",
+    "location": "Promenade des Anglais, 789",
+    "city": "Nice",
+    "country": "France",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "2801",
+        "type": "Deluxe",
+        "price": 250,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Spa"],
+        "capacity": 3,
+        "imagesURI": ["imageURI109.jpg", "imageURI110.jpg"],
+        "description": "An opulent hotel offering relaxation and luxury."
+      },
+      {
+        "room_number": "2802",
+        "type": "Suite",
+        "price": 550,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Ocean view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI111.jpg", "imageURI112.jpg"],
+        "description": "A suite with stunning views of the ocean."
+      }
+    ]
+  },
+  {
+    "name": "Geneva Lakeside Hotel",
+    "location": "Quai du Mont-Blanc, 456",
+    "city": "Geneva",
+    "country": "Switzerland",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "room_number": "2901",
+        "type": "Deluxe",
+        "price": 280,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Lake view"],
+        "capacity": 3,
+        "imagesURI": ["imageURI113.jpg", "imageURI114.jpg"],
+        "description": "An elegant hotel offering scenic views of the lake."
+      },
+      {
+        "room_number": "2902",
+        "type": "Suite",
+        "price": 600,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "Lake view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI115.jpg", "imageURI116.jpg"],
+        "description": "A luxurious suite with breathtaking lake views."
+      }
+    ]
+  },
+  {
+    "name": "Porto Riverside Hotel",
+    "location": "Cais da Ribeira, 789",
+    "city": "Porto",
+    "country": "Portugal",
+    "rating": 4.6,
+    "rooms": [
+      {
+        "room_number": "3001",
+        "type": "Standard",
+        "price": 180,
+        "amenities": ["Wi-Fi", "TV", "Mini bar"],
+        "capacity": 2,
+        "imagesURI": ["imageURI117.jpg", "imageURI118.jpg"],
+        "description": "A modern hotel offering scenic views of the river."
+      },
+      {
+        "room_number": "3002",
+        "type": "Suite",
+        "price": 400,
+        "amenities": ["Wi-Fi", "TV", "Mini bar", "Jacuzzi", "River view"],
+        "capacity": 4,
+        "imagesURI": ["imageURI119.jpg", "imageURI120.jpg"],
+        "description": "A luxurious suite with breathtaking river views."
+      }
+    ]
+  }
+]
