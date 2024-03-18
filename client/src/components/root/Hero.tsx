@@ -1,11 +1,13 @@
 import styles from "@/src/utils/style";
 import { Button } from "@nextui-org/button";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="w-full h-[92vh] banner flex  items-center pl-32   z-10 absolute ">
+    <div className="w-full h-[92vh] banner flex items-center pl-8 sm:pl-16 md:pl-32 z-10 absolute">
+
       
-      <div className="w-[70%] max-w-[70rem] p-5  pl-8 text-black rounded-[8px] shadow  bg-white  
+      <div className="w-[70%] max-w-[70rem] p-2  pl-8 text-black rounded-[8px] shadow  bg-white  
        ">
         <h1 className="text-3xl py-5 xl:text-6xl font-[700] xl:leading-[80px] sm:mt-20 font-Inter">
           Luxurious and comfortable hotels, <br />
@@ -16,9 +18,11 @@ const Hero = () => {
           Great <br /> <span className="text-secondary font-bold">discounts for first-time bookings.</span>
         </p>
         <br />
-        <Button className={`${styles.button} w-[180px] md:mb-12`}>
-          Book Now
-        </Button>
+        <Link href={"./hotels"}>
+          <Button className={`${styles.button} w-[180px] md:mb-12`}>
+            Book Now
+          </Button>
+        </Link>
       </div>
     </div>
   );

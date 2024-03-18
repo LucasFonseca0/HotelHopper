@@ -13,7 +13,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Food Delivery",
+  title: "HotelHopper",
   description: "Food Delivery website",
 };
  
