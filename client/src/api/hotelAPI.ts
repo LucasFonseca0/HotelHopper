@@ -1,12 +1,10 @@
-// services/user.js
 import axios from 'axios';
 
-export async function getUser() {
-  const response = await axios.get();
+const  URL = "http://localhost:8000/hotel"
+
+export async function getAllHotels() {
+  const response = await axios.get(URL);
+  console.log(response)
   return response.data;
 }
 
-export async function updateUser() {
-  const response = await axios.put(`/api/user/`);
-  return response.data;
-}
