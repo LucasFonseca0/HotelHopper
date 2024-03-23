@@ -9,11 +9,44 @@ import HotelFilterBar from "@/src/components/hotel/HotelFilterBar";
 
 const Page = () => {
   const [hotels, setHotels] = useState([]);
+  const [locations, setLocations] = useState<{ country: string, cities: string[] }[]>([]);
+
+
+
+  const setAllLocationsByCountryAndCity = (data: Hotel[]) => {
+    const countriesAndCities = [] as { country: string, cities: string[] }[];
+  
+    data.forEach((hotel) => {
+      const countryIndex = countriesAndCities.findIndex((item) => item.country === hotel.country);
+      if (countryIndex === -1) {
+        countriesAndCities.push({ country: hotel.country, cities: [hotel.city] });
+      } else {
+        if (!countriesAndCities[countryIndex].cities.includes(hotel.city)) {
+          countriesAndCities[countryIndex].cities.push(hotel.city);
+        }
+      }
+    });
+  
+    
+    countriesAndCities.sort((a, b) => a.country.localeCompare(b.country));
+  
+  
+    countriesAndCities.forEach(country => {
+      country.cities.sort((a, b) => a.localeCompare(b));
+    });
+  
+    return countriesAndCities;
+  }
+  
+
 
   useEffect(() => {
     const fetchHotels = async () => {
       const data = await getAllHotels();
       setHotels(data);
+      const LocationsByCountryAndCity = setAllLocationsByCountryAndCity(data)
+      setLocations(LocationsByCountryAndCity)
+      
     };
 
     fetchHotels();
@@ -23,7 +56,7 @@ const Page = () => {
     <div>
       <Header />
       <main> 
-        <HotelFilterBar hotels={hotels} setHotels={setHotels} />
+        <HotelFilterBar hotels={hotels} setHotels={setHotels} locations={locations} />
         <article className="flex flex-wrap justify-center gap-4 mt-4">
           {hotels.map((hotel: Hotel) =>
             hotel.rooms.map((room) => (
