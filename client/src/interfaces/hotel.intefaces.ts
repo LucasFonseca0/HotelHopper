@@ -16,3 +16,8 @@ interface Hotel {
     description: string;
     price: number;
   }
+
+  interface FilterHotels{
+    countries?:string[]
+    cities?:string[]
+  }

@@ -9,54 +9,59 @@ import HotelFilterBar from "@/src/components/hotel/HotelFilterBar";
 
 const Page = () => {
   const [hotels, setHotels] = useState([]);
-  const [locations, setLocations] = useState<{ country: string, cities: string[] }[]>([]);
-
-
+  const [filters, setFilters] = useState<FilterHotels>({});
+  const [locations, setLocations] = useState<
+    { country: string; cities: string[] }[]
+  >([]);
 
   const setAllLocationsByCountryAndCity = (data: Hotel[]) => {
-    const countriesAndCities = [] as { country: string, cities: string[] }[];
-  
+    const countriesAndCities = [] as { country: string; cities: string[] }[];
+
     data.forEach((hotel) => {
-      const countryIndex = countriesAndCities.findIndex((item) => item.country === hotel.country);
+      const countryIndex = countriesAndCities.findIndex(
+        (item) => item.country === hotel.country
+      );
       if (countryIndex === -1) {
-        countriesAndCities.push({ country: hotel.country, cities: [hotel.city] });
-      } else {
-        if (!countriesAndCities[countryIndex].cities.includes(hotel.city)) {
-          countriesAndCities[countryIndex].cities.push(hotel.city);
-        }
+        countriesAndCities.push({
+          country: hotel.country,
+          cities: [hotel.city],
+        });
+        return; // Sai da iteração atual
+      }
+
+      if (!countriesAndCities[countryIndex].cities.includes(hotel.city)) {
+        countriesAndCities[countryIndex].cities.push(hotel.city);
       }
     });
-  
-    
+
     countriesAndCities.sort((a, b) => a.country.localeCompare(b.country));
-  
-  
-    countriesAndCities.forEach(country => {
+
+    countriesAndCities.forEach((country) => {
       country.cities.sort((a, b) => a.localeCompare(b));
     });
-  
-    return countriesAndCities;
-  }
-  
 
+    return countriesAndCities;
+  };
 
   useEffect(() => {
     const fetchHotels = async () => {
-      const data = await getAllHotels();
+      const data = await getAllHotels({ filters });
+
       setHotels(data);
-      const LocationsByCountryAndCity = setAllLocationsByCountryAndCity(data)
-      setLocations(LocationsByCountryAndCity)
-      
+      const LocationsByCountryAndCity = setAllLocationsByCountryAndCity(data);
+      setLocations(LocationsByCountryAndCity);
     };
 
     fetchHotels();
-  }, []);
+  }, [,filters]);
+
+ 
 
   return (
     <div>
       <Header />
-      <main> 
-        <HotelFilterBar hotels={hotels} setHotels={setHotels} locations={locations} />
+      <main>
+        <HotelFilterBar setFilters={setFilters} locations={locations} />
         <article className="flex flex-wrap justify-center gap-4 mt-4">
           {hotels.map((hotel: Hotel) =>
             hotel.rooms.map((room) => (
@@ -68,7 +73,7 @@ const Page = () => {
             ))
           )}
         </article>
-      </main>  
+      </main>
     </div>
   );
 };

@@ -1,10 +1,15 @@
 import axios from 'axios';
 
-const  URL = "http://localhost:8000/hotel"
 
-export async function getAllHotels() {
+export async function getAllHotels({filters}:{filters:FilterHotels}) {
+
+  let  URL = "http://localhost:8000/hotel"
+
   const response = await axios.get(URL);
-  console.log(response)
+  
+
+  
+  console.log(filters.countries)
   return response.data;
 }
 
