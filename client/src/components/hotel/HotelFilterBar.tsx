@@ -2,28 +2,25 @@
 
 import { useEffect, useState } from "react";
 import { Select, SelectItem, Avatar, Selection } from "@nextui-org/react";
-import flags from "@/src/utils/tagFlags";
+import flags from "@/src/utils/filterBarUtils/tagFlags";
+import PricesRange from "@/src/utils/filterBarUtils/filterOptions";
 
 const HotelFilterBar = ({
-
   setFilters,
   locations,
 }: {
- 
   setFilters: any;
   locations: { country: string; cities: string[] }[];
 }) => {
   const [countries, setCountries] = useState<Selection>(new Set([]));
+  const [maxPrice, setMaxPrice] = useState<Selection>(new Set([]));
 
   
 
   useEffect(() => {
     setFilters({
-      countries:countries
-    })
-    
-    
-   
+      country: countries
+    });
   }, [countries]);
 
   return (
@@ -53,6 +50,25 @@ const HotelFilterBar = ({
               {location.country}
             </SelectItem>
           ))}
+        </Select>
+        <Select
+          className="max-w-xs"
+          label="Select city"
+          selectionMode="multiple"
+          selectedKeys={maxPrice}
+          onSelectionChange={setMaxPrice}
+        >
+          {PricesRange
+            .map((price) =>
+              
+                <SelectItem key={price} value={price?.max + price?.min}>
+                  {price.min && <>
+
+                  </>}
+                </SelectItem>
+              )
+            
+            .flat()}
         </Select>
       </nav>
     </div>

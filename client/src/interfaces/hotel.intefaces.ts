@@ -18,6 +18,6 @@ interface Hotel {
   }
 
   interface FilterHotels{
-    countries?:string[]
-    cities?:string[]
+    country?:string[]
+    city?:string[]
   }

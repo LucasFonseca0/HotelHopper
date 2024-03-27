@@ -15,7 +15,14 @@ export class HotelService {
     return 'This action adds a new hotel';
   }
 
-  async findAll() {
+  async findAll(filters:any) {
+    
+    
+  
+    if(Object.keys(filters).length >0){
+      return await this.hotelModel.find(filters)
+     
+    }
     return this.hotelModel.find();
   }
 

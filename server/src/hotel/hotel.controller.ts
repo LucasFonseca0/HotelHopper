@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { HotelService } from './hotel.service';
 import { CreateHotelDto } from './dto/create-hotel.dto';
 import { UpdateHotelDto } from './dto/update-hotel.dto';
 import { IsPublic } from 'src/auth/decorators/is-public.decorator';
+import { HotelFiltersDto } from './dto/hotel-filters.dto';
 
 @Controller('hotel')
 export class HotelController {
@@ -14,10 +15,11 @@ export class HotelController {
   }
 
   @IsPublic()
-  @Get()
-  findAll() {
-    return this.hotelService.findAll();
-  }
+@Get()
+findAll(@Query() filters: any) {
+  return this.hotelService.findAll(filters);
+}
+
 
   @Get(':id')
   findOne(@Param('id') id: string) {

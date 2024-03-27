@@ -26,7 +26,7 @@ const Page = () => {
           country: hotel.country,
           cities: [hotel.city],
         });
-        return; // Sai da iteração atual
+        return; 
       }
 
       if (!countriesAndCities[countryIndex].cities.includes(hotel.city)) {
@@ -48,12 +48,26 @@ const Page = () => {
       const data = await getAllHotels({ filters });
 
       setHotels(data);
+
+      
+    };
+
+
+
+    fetchHotels();
+  }, [filters]);
+  useEffect(() => {
+    const fetchLocations = async () => {
+      const data = await getAllHotels({});
+
       const LocationsByCountryAndCity = setAllLocationsByCountryAndCity(data);
       setLocations(LocationsByCountryAndCity);
     };
 
-    fetchHotels();
-  }, [,filters]);
+
+
+    fetchLocations();
+  }, []);
 
  
 
