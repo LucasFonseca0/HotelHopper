@@ -6,6 +6,8 @@ import React, { useEffect, useState } from "react";
 import Header from "@/src/shared/Layout/Header";
 import HotelCard from "@/src/components/hotel/HotelCard";
 import HotelFilterBar from "@/src/components/hotel/HotelFilterBar";
+import NoHotelFind from "@/src/components/hotel/NoHotelFind";
+import LoadingSpinner from "@/src/shared/Loading/LoadingSpinner";
 
 const Page = () => {
   const [hotels, setHotels] = useState([]);
@@ -13,6 +15,8 @@ const Page = () => {
   const [locations, setLocations] = useState<
     { country: string; cities: string[] }[]
   >([]);
+  const [noHotelFind,setNoHotelFind] = useState(false)
+  const [isLoading,setIsLoading] = useState(false)
 
   const setAllLocationsByCountryAndCity = (data: Hotel[]) => {
     const countriesAndCities = [] as { country: string; cities: string[] }[];
@@ -26,7 +30,7 @@ const Page = () => {
           country: hotel.country,
           cities: [hotel.city],
         });
-        return; 
+        return;
       }
 
       if (!countriesAndCities[countryIndex].cities.includes(hotel.city)) {
@@ -45,14 +49,17 @@ const Page = () => {
 
   useEffect(() => {
     const fetchHotels = async () => {
+      setIsLoading(true)
+      await new Promise(resolve => setTimeout(resolve, 1000))
       const data = await getAllHotels({ filters });
-
+      setIsLoading(false)
       setHotels(data);
+      setNoHotelFind(false)
 
-      
+      if(!(data.length >0)){
+        setNoHotelFind(true)
+      }
     };
-
-
 
     fetchHotels();
   }, [filters]);
@@ -64,30 +71,34 @@ const Page = () => {
       setLocations(LocationsByCountryAndCity);
     };
 
-
-
     fetchLocations();
   }, []);
-
- 
 
   return (
     <div>
       <Header />
-      <main>
+      <main className="h-[100%-80px]">
         <HotelFilterBar setFilters={setFilters} locations={locations} />
+        {
+          isLoading && <LoadingSpinner/>
+        }
+          {
+            noHotelFind && <NoHotelFind/>
+          }
         <article className="flex flex-wrap justify-center gap-4 mt-4">
-          {hotels.map((hotel: Hotel) =>
-            hotel.rooms.map((room) => (
-              <HotelCard
-                key={`${hotel._id}-${room.room_number}`}
-                hotel={hotel}
-                room={room}
-              />
-            ))
-          )}
+          {hotels.length > 0 &&
+            hotels.map((hotel: Hotel) =>
+              hotel.rooms.map((room) => (
+                <HotelCard
+                  key={`${hotel._id}-${room.room_number}`}
+                  hotel={hotel}
+                  room={room}
+                />
+              ))
+            )}
         </article>
       </main>
+            
     </div>
   );
 };

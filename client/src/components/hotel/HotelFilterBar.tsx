@@ -27,7 +27,7 @@ const HotelFilterBar = ({
 
   return (
     <div className="sticky top-0 bg-transparentBg z-10">
-      <nav className="h-20 w-full">
+      <nav className="h-20 w-full flex justify-center p-2 gap-2">
         <Select
           className="max-w-xs"
           label="Select country"
@@ -72,7 +72,7 @@ const HotelFilterBar = ({
               }
              
             >
-              {price.min == 0 && `<${price.min}`}
+              {price.min == 0 && `<${price.max}`}
               {price.min > 0 &&
                 price.max < Infinity &&
                 `${price.min}-${price.max}`}
