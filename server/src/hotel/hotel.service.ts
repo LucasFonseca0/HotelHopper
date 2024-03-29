@@ -16,39 +16,54 @@ export class HotelService {
   }
 
   async findAll(filters: HotelFilters) {
-
-
     const { country, priceRange } = filters;
-    
-    
-
-    console.log(filters)
     const query: any = {};
-  
-    if (country && country.length > 0) {
-      query.country = { $in: country };
-    }
-  
-    if (priceRange && priceRange.length > 0) {
-      const priceRangeQueries = priceRange.map(range => {
 
+    if (country && country.length > 0) {
+      query.country = { $in: Array.isArray(country) ? country : [country] };
+    }
+
+    if (priceRange && priceRange.length > 0) {
+      const priceRanges = Array.isArray(priceRange) ? priceRange : [priceRange];
+      const priceRangeQueries = priceRanges.map((range) => {
         const [min, max] = range.split('-');
         if (max === 'Infinity') {
-          return { price: { $gte: parseInt(min) } }; // Greater than or equal to min price
-        } else {
-          return { price: { $gte: parseInt(min), $lte: parseInt(max) } }; // Price within range
+          return { 'rooms.price': { $gte: parseInt(min) } };
         }
+        return { 'rooms.price': { $gte: parseInt(min), $lte: parseInt(max) } };
       });
-  
 
-      query.$and = [{ $or: priceRangeQueries }];
+      query.$or = priceRangeQueries;
     }
-   
-   
-    return await this.hotelModel.find(query);
+
+    try {
+      let hotels = await this.hotelModel.find(query);
+
+    
+      if (priceRange && priceRange.length > 0) {
+        function secondFilterHotel() {
+          hotels = hotels.map((hotel) => {
+            hotel.rooms = hotel.rooms.filter((room) => {
+              const roomPrice = room.price;
+              const priceRanges = Array.isArray(priceRange) ? priceRange : [priceRange];
+              return priceRanges.some((range) => {
+                const [min, max] = range.split('-').map(Number);
+                return min <= roomPrice && roomPrice <= max;
+              });
+            });
+            return hotel;
+          });
+        }
+
+        secondFilterHotel();
+      }
+
+      console.log(hotels);
+      return hotels;
+    } catch (error) {
+      throw new Error(`Failed to find hotels: ${error.message}`);
+    }
   }
-  
-  
 
 
   findOne(id: number) {

@@ -20,6 +20,8 @@ const HotelFilterBar = ({
       country: countries,
       priceRange
     });
+
+   
     
   }, [countries,priceRange]);
 
