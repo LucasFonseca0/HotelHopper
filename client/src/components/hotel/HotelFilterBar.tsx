@@ -18,12 +18,9 @@ const HotelFilterBar = ({
   useEffect(() => {
     setFilters({
       country: countries,
-      priceRange
+      priceRange,
     });
-
-   
-    
-  }, [countries,priceRange]);
+  }, [countries, priceRange]);
 
   return (
     <div className="sticky top-0 bg-transparentBg z-10">
@@ -65,12 +62,11 @@ const HotelFilterBar = ({
               key={`${price.min}-${price.max}`}
               textValue={
                 price.min === 0
-                  ? `<${price.min}`
+                  ? `<${price.max}`
                   : price.min > 0 && price.max < Infinity
                   ? `${price.min}-${price.max}`
                   : `>${price.min}`
               }
-             
             >
               {price.min == 0 && `<${price.max}`}
               {price.min > 0 &&
@@ -78,8 +74,7 @@ const HotelFilterBar = ({
                 `${price.min}-${price.max}`}
               {price.max == Infinity && `>${price.min}`}
             </SelectItem>
-          ))
-          .flat()}
+          )).flat()}
         </Select>
       </nav>
     </div>

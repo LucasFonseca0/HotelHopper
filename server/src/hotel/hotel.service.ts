@@ -18,11 +18,11 @@ export class HotelService {
   async findAll(filters: HotelFilters) {
     const { country, priceRange } = filters;
     const query: any = {};
-
+  
     if (country && country.length > 0) {
       query.country = { $in: Array.isArray(country) ? country : [country] };
     }
-
+  
     if (priceRange && priceRange.length > 0) {
       const priceRanges = Array.isArray(priceRange) ? priceRange : [priceRange];
       const priceRangeQueries = priceRanges.map((range) => {
@@ -32,38 +32,37 @@ export class HotelService {
         }
         return { 'rooms.price': { $gte: parseInt(min), $lte: parseInt(max) } };
       });
-
+  
       query.$or = priceRangeQueries;
     }
-
+  
     try {
       let hotels = await this.hotelModel.find(query);
-
-    
+  
       if (priceRange && priceRange.length > 0) {
-        function secondFilterHotel() {
-          hotels = hotels.map((hotel) => {
-            hotel.rooms = hotel.rooms.filter((room) => {
-              const roomPrice = room.price;
-              const priceRanges = Array.isArray(priceRange) ? priceRange : [priceRange];
-              return priceRanges.some((range) => {
-                const [min, max] = range.split('-').map(Number);
-                return min <= roomPrice && roomPrice <= max;
-              });
-            });
-            return hotel;
-          });
-        }
-
-        secondFilterHotel();
+        this.filterHotelsByPriceRange(hotels, priceRange);
       }
-
-      console.log(hotels);
+  
       return hotels;
     } catch (error) {
       throw new Error(`Failed to find hotels: ${error.message}`);
     }
   }
+  
+  private filterHotelsByPriceRange(hotels: Hotel[], priceRange: string[]) {
+    return hotels.map((hotel) => {
+      hotel.rooms = hotel.rooms.filter((room) => {
+        const roomPrice = room.price;
+        const priceRanges = Array.isArray(priceRange) ? priceRange : [priceRange];
+        return priceRanges.some((range) => {
+          const [min, max] = range.split('-').map(Number);
+          return min <= roomPrice && roomPrice <= max;
+        });
+      });
+      return hotel;
+    });
+  }
+  
 
 
   findOne(id: number) {
