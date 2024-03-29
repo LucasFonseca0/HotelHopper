@@ -15,16 +15,41 @@ export class HotelService {
     return 'This action adds a new hotel';
   }
 
-  async findAll(filters:any) {
+  async findAll(filters: HotelFilters) {
+
+
+    const { country, priceRange } = filters;
     
     
+
+    console.log(filters)
+    const query: any = {};
   
-    if(Object.keys(filters).length >0){
-      return await this.hotelModel.find(filters)
-     
+    if (country && country.length > 0) {
+      query.country = { $in: country };
     }
-    return this.hotelModel.find();
+  
+    if (priceRange && priceRange.length > 0) {
+      const priceRangeQueries = priceRange.map(range => {
+
+        const [min, max] = range.split('-');
+        if (max === 'Infinity') {
+          return { price: { $gte: parseInt(min) } }; // Greater than or equal to min price
+        } else {
+          return { price: { $gte: parseInt(min), $lte: parseInt(max) } }; // Price within range
+        }
+      });
+  
+
+      query.$and = [{ $or: priceRangeQueries }];
+    }
+   
+   
+    return await this.hotelModel.find(query);
   }
+  
+  
+
 
   findOne(id: number) {
     return `This action returns a #${id} hotel`;

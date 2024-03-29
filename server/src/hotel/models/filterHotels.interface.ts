@@ -1,4 +1,4 @@
 interface HotelFilters{
-    contries?: string[]
-    cities?:string[]
+    country?: string[]
+    priceRange?:string[]
 }

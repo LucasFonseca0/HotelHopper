@@ -13,15 +13,15 @@ const HotelFilterBar = ({
   locations: { country: string; cities: string[] }[];
 }) => {
   const [countries, setCountries] = useState<Selection>(new Set([]));
-  const [maxPrice, setMaxPrice] = useState<Selection>(new Set([]));
-
-  
+  const [priceRange, setPriceRange] = useState<Selection>(new Set([]));
 
   useEffect(() => {
     setFilters({
-      country: countries
+      country: countries,
+      priceRange
     });
-  }, [countries]);
+    
+  }, [countries,priceRange]);
 
   return (
     <div className="sticky top-0 bg-transparentBg z-10">
@@ -53,22 +53,31 @@ const HotelFilterBar = ({
         </Select>
         <Select
           className="max-w-xs"
-          label="Select city"
+          label="Select price range"
           selectionMode="multiple"
-          selectedKeys={maxPrice}
-          onSelectionChange={setMaxPrice}
+          selectedKeys={priceRange}
+          onSelectionChange={setPriceRange}
         >
-          {PricesRange
-            .map((price) =>
-              
-                <SelectItem key={price} value={price?.max + price?.min}>
-                  {price.min && <>
-
-                  </>}
-                </SelectItem>
-              )
-            
-            .flat()}
+          {PricesRange.map((price) => (
+            <SelectItem
+              key={`${price.min}-${price.max}`}
+              textValue={
+                price.min === 0
+                  ? `<${price.min}`
+                  : price.min > 0 && price.max < Infinity
+                  ? `${price.min}-${price.max}`
+                  : `>${price.min}`
+              }
+             
+            >
+              {price.min == 0 && `<${price.min}`}
+              {price.min > 0 &&
+                price.max < Infinity &&
+                `${price.min}-${price.max}`}
+              {price.max == Infinity && `>${price.min}`}
+            </SelectItem>
+          ))
+          .flat()}
         </Select>
       </nav>
     </div>

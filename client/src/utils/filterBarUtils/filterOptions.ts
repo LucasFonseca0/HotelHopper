@@ -1,4 +1,5 @@
 const PricesRange = [{
+    min:0,
     max:200
 },{
     min:200,
@@ -14,7 +15,8 @@ const PricesRange = [{
     max:1000
 },
 {
-    min:1000
+    min:1000,
+    max:Infinity
 }]
 
 
