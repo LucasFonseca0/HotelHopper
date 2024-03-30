@@ -17,7 +17,7 @@ const Page = () => {
 
   const fetchHotels = async () => {
     setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 100));
     const data = await getAllHotels({ filters });
     setIsLoading(false);
     setHotels(data);

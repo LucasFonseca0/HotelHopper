@@ -4,15 +4,7 @@ import { Document } from 'mongoose';
 
 export type HotelDocument = Hotel & Document;
 
-interface rooms {
-    room_number:string
-    type:string
-    price:number
-    amenities ?: string[]
-    capacity: number
-    imagesURI?:string[]
-    description: string
-}
+
 
 @Schema()
 export class Hotel {
@@ -31,7 +23,7 @@ export class Hotel {
   @Prop({  required:false })
   rating:number
   @Prop({  required:true }) 
-  rooms :rooms[]
+  rooms :Room[]
   @Prop({  required:true })
   user : string 
 }
