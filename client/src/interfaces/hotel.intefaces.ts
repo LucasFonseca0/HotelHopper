@@ -9,13 +9,14 @@ interface Hotel {
   }
   
   interface Room {
-    room_number: number;
-    amenities?: string[]
-    capacity:number
-    type: string;
-    description: string;
-    price: number;
-  }
+    room_number:string
+    type:string
+    price:number
+    amenities ?: string[]
+    capacity: number
+    imagesURI?:string[]
+    description: string
+}
 
   interface FilterHotels{
     country?:string[]

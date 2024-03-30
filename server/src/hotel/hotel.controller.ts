@@ -32,16 +32,16 @@ export class HotelController {
 
   @IsPublic()
   @Get(':hotelID')
-  findOneHotel(@Param('hotelID') id: ObjectId): Promise<Hotel> {
-    return this.hotelService.findOneHotel(id);
+  findOneHotelByID(@Param('hotelID') id: string): Promise<Hotel> {
+    return this.hotelService.findOneHotelByID(id);
   }
   @IsPublic()
   @Get(':hotelID/:RoomNumber')
-  findOneRoom(
-    @Param('hotelID') hotelID: ObjectId,
-    @Param('hotelID') roomNumber: string,
+  findOneRoomByID(
+    @Param('hotelID') hotelID: string,
+    @Param('RoomNumber') roomNumber: string,
   ): Promise<Room> {
-    return this.hotelService.findOneRoom(hotelID, roomNumber);
+    return this.hotelService.findOneRoomByID(hotelID, roomNumber);
   }
 
   @Patch(':id')

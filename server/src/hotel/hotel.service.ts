@@ -3,7 +3,7 @@ import { CreateHotelDto } from './dto/create-hotel.dto';
 import { UpdateHotelDto } from './dto/update-hotel.dto';
 import { Hotel, HotelDocument } from './entities/hotel.entity';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, ObjectId } from 'mongoose';
+import mongoose,{ Model, ObjectId } from 'mongoose';
 
 @Injectable()
 export class HotelService {
@@ -65,17 +65,17 @@ export class HotelService {
     });
   }
 
-  async findOneHotel(id: ObjectId) {
+  async findOneHotelByID(id: string) {
     try {
-      const hotel = await this.hotelModel.findOne(id);
+      const hotel = await this.hotelModel.findOne({ _id: new mongoose.Types.ObjectId(id) });
       return hotel;
     } catch (error) {
-      throw new Error(`Failed to find hotels: ${error.message}`);
+      throw new Error(`Failed to find hotel: ${error.message}`);
     }
   }
-  async findOneRoom(hotelID: ObjectId, roomNumber: string) {
+  async findOneRoomByID(hotelID: string, roomNumber: string) {
     try {
-      const hotel = await this.findOneHotel(hotelID);
+      const hotel = await this.findOneHotelByID(hotelID);
   
       const room = hotel.rooms.find(room => room.room_number === roomNumber);
   

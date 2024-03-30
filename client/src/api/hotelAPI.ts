@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const baseUrl = "http://localhost:8000/hotel";
+
 export async function getAllHotels({ filters }: { filters?: FilterHotels }) {
-  const baseUrl = "http://localhost:8000/hotel";
 
   const objectFilters: { [key: string]: string[] } = Object.fromEntries(
     Object.entries(filters || {})
@@ -16,5 +17,17 @@ export async function getAllHotels({ filters }: { filters?: FilterHotels }) {
 
   const response = await axios.get(URL);
 
+  return response.data;
+}
+
+export async function getHotelByID(hotelID: string): Promise<Hotel> {
+  const URL = `${baseUrl}/${hotelID}`;
+  const response = await axios.get(URL);
+  return response.data;
+}
+
+export async function getRoomByID(hotelID:string,room_number:string): Promise<Room>{
+  const URL = `${baseUrl}/${hotelID}/${room_number}`;
+  const response = await axios.get(URL);
   return response.data;
 }

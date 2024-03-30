@@ -4,7 +4,10 @@ import { TiStar } from "react-icons/ti";
 
 import styles from "../../utils/style";
 
- const HotelCard = ({ hotel, room }:{hotel:Hotel,room:Room}) => (
+ const HotelCard = ({ hotel, room }:{hotel:Hotel,room:Room}) => {
+  
+  
+  return (
     <section
   key={`${hotel._id}-${room.room_number}`}
   className="w-90% md:w-[70%] h-auto md:h-80 p-4 bg-white flex flex-col md:flex-row rounded-lg shadow-sm"
@@ -27,7 +30,7 @@ import styles from "../../utils/style";
       </aside> 
       <section className="md:h-full gap-2 flex justify-around md:flex-col md:justify-end items-center">
         <p className="text-xl sm:text-2xl">€{room.price} per night</p>
-        <Link href={`${hotel._id}/${room.room_number}`} >
+        <Link href={`hotels/${hotel._id}/${room.room_number}`} >
           <Button className={`${styles.button} bg-secondary w-[180px] mb-2`}>
             more details
           </Button>
@@ -37,6 +40,6 @@ import styles from "../../utils/style";
   </div>
 </section>
 
-  );
+  )};
 
   export default HotelCard
