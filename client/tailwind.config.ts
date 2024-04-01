@@ -12,11 +12,11 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#F0FFFF" ,
-        secondary: "#FFA500" /* Laranja */,
-        accent: "#1E90FF" /* Azul Dodger */,
-        light: "#ADD8E6" /* Azul Claro */,
-        dark: "#00008B" /* Azul Escuro */,
-        transparentBg: "rgba(0, 0, 255, 0.3)" /* Azul Transparente */,
+        secondary: "#FFA500" ,
+        accent: "#1E90FF" ,
+        light: "#ADD8E6" ,
+        dark: "#00008B" ,
+        transparentBg: "rgba(0, 0, 255, 0.3)" ,
       },
       
       fontFamily: {
