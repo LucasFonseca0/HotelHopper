@@ -18,7 +18,6 @@ export class AuthService {
     const payload: UserPayload = {
       email: user._doc.email,
       name: user._doc.name,
-      isAdmin: user._doc.isAdmin,
     };
     console.log(user._doc)
     const jwtToken = this.jwtService.sign(payload)

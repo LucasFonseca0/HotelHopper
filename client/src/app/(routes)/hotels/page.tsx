@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Header from "@/src/shared/Layout/Header";
+import Header from "@/src/components/Layout/Header";
 import HotelCard from "@/src/components/hotel/HotelCard";
 import HotelFilterBar from "@/src/components/hotel/HotelFilterBar";
 import NoHotelFind from "@/src/components/hotel/NoHotelFind";

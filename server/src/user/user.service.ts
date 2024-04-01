@@ -15,8 +15,7 @@ export class UserService {
       const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
       const createdUser = new this.userModel({
         ...createUserDto,
-        password: hashedPassword,
-        isAdmin:false
+        password: hashedPassword
       });
       await createdUser.save();
 

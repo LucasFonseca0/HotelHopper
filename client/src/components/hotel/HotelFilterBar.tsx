@@ -9,7 +9,7 @@ const HotelFilterBar = ({
   setFilters,
   locations,
 }: {
-  setFilters: any;
+  setFilters: Function;
   locations: { country: string; cities: string[] }[];
 }) => {
   const [countries, setCountries] = useState<Selection>(new Set([]));

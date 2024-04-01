@@ -2,8 +2,9 @@
 
 import { getRoomByID } from "@/src/api/hotelAPI";
 import CarouselImage from "@/src/components/hotel/room/CarouselImage";
-import Header from "@/src/shared/Layout/Header";
+import Header from "@/src/components/Layout/Header";
 import LoadingSpinner from "@/src/shared/Loading/LoadingSpinner";
+import styles from "@/src/utils/style";
 import {
   Modal,
   ModalContent,
@@ -19,7 +20,7 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
   const [roomDetails, setRoomDetails] = useState<Room | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [size, setSize] = useState("md");
+
 
   const handleOpen = () => {
     onOpen();
@@ -76,7 +77,7 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
                 per night
               </p>
               <Button
-                className="bg-secondary text-white font-bold text-3xl"
+                className={`${styles.button} bg-secondary text-2xl sm:text-3xl md:text-4xl`}
                 onPress={() => handleOpen()}
               >
                 Book Now

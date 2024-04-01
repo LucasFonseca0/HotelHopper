@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../shared/Layout/Header'
-import Hero from '../components/root/Hero'
+import Header from '../components/Layout/Header'
+import Hero from '../shared/root/Hero'
 
 const HomeScreen = () => {
   return (
