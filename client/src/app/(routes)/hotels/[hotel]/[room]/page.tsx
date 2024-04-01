@@ -43,8 +43,8 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
   return (
     <>
       <Header />
-      <div className="p-2 flex justify-center items-center">
-        <div className="bg-white rounded-lg p-3 max-w-[1520px]">
+      <div className="p-2 sm:p-4 md:p-8 flex justify-center items-center w-full">
+        <div className="bg-white rounded-lg p-3  max-w-[1520px]">
           <h2 className="text-secondary font-bold flex justify-center items-center m-2 text-xl sm:text-2xl md:text-3xl">
             Room Details
           </h2>
