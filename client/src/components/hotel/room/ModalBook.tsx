@@ -9,14 +9,16 @@ import {
 } from "@nextui-org/react";
 import useUser from "@/src/hooks/useUser";
 import AuthScreen from "@/src/screens/AuthScreen";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { addDays } from "date-fns";
 
 const BookModal = ({
   isOpen,
-  onClose
+  onClose,
 }: {
   isOpen: boolean;
   onClose: () => void;
-
 }) => {
   const [singedIn, setSingedIn] = useState(false);
   const { user, loading } = useUser();
@@ -32,35 +34,41 @@ const BookModal = ({
 
   useEffect(() => {}, [user]);
 
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    console.log(dates);
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
 
   return (
     <>
-        {
-            !singedIn && <AuthScreen setOpen={onClose}/>
-        }
+      {!singedIn && <AuthScreen setOpen={onClose} />}
       {singedIn && (
-        <Modal size={"2xl"} isOpen={isOpen} onClose={onClose} placement="center">
+        <Modal
+          size={"2xl"}
+          isOpen={isOpen}
+          onClose={onClose}
+          placement="center"
+        >
           <ModalContent className="bg-primary text-black">
             <ModalHeader className="flex flex-col gap-1">
               Book the room
             </ModalHeader>
             <ModalBody>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
-                amet hendrerit risus, sed porttitor quam.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
-                amet hendrerit risus, sed porttitor quam.
-              </p>
-              <p>
-                Magna exercitation reprehenderit magna aute tempor cupidatat
-                consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                aliqua enim laboris do dolor eiusmod.
-              </p>
+              <DatePicker
+                selected={startDate}
+                onChange={onChange}
+                startDate={startDate}
+                endDate={endDate}
+                excludeDates={[addDays(new Date(), 1), addDays(new Date(), 5)]}
+                selectsRange
+                selectsDisabledDaysInRange
+                inline
+                
+              />
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
@@ -73,9 +81,7 @@ const BookModal = ({
           </ModalContent>
         </Modal>
       )}
-
     </>
-
   );
 };
 
