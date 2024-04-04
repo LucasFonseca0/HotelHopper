@@ -15,8 +15,8 @@ import toast from "react-hot-toast";
 
 
 const ProfileDropdown = () => {
-  const [singedIn, setSingedIn] = useState(false);
   const [open, setOpen] = useState(false);
+  const [singedIn, setSingedIn] = useState(false);
   const { user, loading } = useUser();
  
 

@@ -2,19 +2,16 @@
 
 import { getRoomByID } from "@/src/api/hotelAPI";
 import CarouselImage from "@/src/components/hotel/room/CarouselImage";
+import BookModal from "@/src/components/hotel/room/ModalBook";
 import Header from "@/src/components/Layout/Header";
 import LoadingSpinner from "@/src/shared/Loading/LoadingSpinner";
 import styles from "@/src/utils/style";
 import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
   Button,
   useDisclosure,
 } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Page = ({ params }: { params: { hotel: string; room: string } }) => {
   const [roomDetails, setRoomDetails] = useState<Room | null>(null);
@@ -46,15 +43,16 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
       <Header />
       <div className="p-2 sm:p-4 md:p-8 flex justify-center items-center w-full">
         <div className="bg-white rounded-lg p-3  max-w-[1520px]">
+          {isLoading && <LoadingSpinner />}
+          {roomDetails && (<>
+          <Button className={`${styles.button} max-w-[30%]` } onClick={() => window.history.back()}><IoMdArrowRoundBack />Back</Button>
           <h2 className="text-secondary font-bold flex justify-center items-center m-2 text-xl sm:text-2xl md:text-3xl">
             Room Details
           </h2>
-          {isLoading && <LoadingSpinner />}
-          {roomDetails && (
             <div className="text-black flex flex-col gap-4 sm:text-xl md:text-2xl">
               {roomDetails.imagesURI && (
                 <CarouselImage imagesURI={roomDetails.imagesURI} />
-              )}
+                )}
               <h2>
                 <span className="font-bold">Type:</span> {roomDetails.type}
               </h2>
@@ -83,53 +81,15 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
                 Book Now
               </Button>
             </div>
+          </>
           )}
           {isOpen && (
-            <Modal size={"2xl"} isOpen={isOpen} onClose={onClose} placement="center">
-              <ModalContent className=" bg-primary text-black">
-                {(onClose) => (
-                  <>
-                    <ModalHeader className="flex flex-col gap-1">
-                      Book the room
-                    </ModalHeader>
-                    <ModalBody>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam pulvinar risus non risus hendrerit venenatis.
-                        Pellentesque sit amet hendrerit risus, sed porttitor
-                        quam.
-                      </p>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam pulvinar risus non risus hendrerit venenatis.
-                        Pellentesque sit amet hendrerit risus, sed porttitor
-                        quam.
-                      </p>
-                      <p>
-                        Magna exercitation reprehenderit magna aute tempor
-                        cupidatat consequat elit dolor adipisicing. Mollit dolor
-                        eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                        officia eiusmod Lorem aliqua enim laboris do dolor
-                        eiusmod.
-                      </p>
-                    </ModalBody>
-                    <ModalFooter>
-                      <Button color="danger" variant="light" onPress={onClose}>
-                        Close
-                      </Button>
-                      <Button color="primary" onPress={onClose}>
-                        Action
-                      </Button>
-                    </ModalFooter>
-                  </>
-                )}
-              </ModalContent>
-            </Modal>
-          )}
+            <BookModal  isOpen={isOpen} onClose={onClose}/>
+            )}
         </div>
       </div>
     </>
-  );
+    );
 };
 
 export default Page;
