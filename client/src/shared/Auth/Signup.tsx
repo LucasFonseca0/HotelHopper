@@ -43,7 +43,8 @@ const Signup = ({
       toast.success("signup succeful")
       setActiveState("Login")
     } catch (error: any) {
-      toast.error(error.message);
+      console.log(error)
+      toast.error(error.response.data.message);
     }
     setIsLoading(false)
   };
@@ -106,19 +107,19 @@ const Signup = ({
             className={`${styles.button} mt-3 `}
             disabled={isSubmitting}
           >
-            Login
+            Signup
           </Button>
         </div>
         <br />
                
 
         <h5 className="text-center pt-4 font-Poppins text-[14px] ">
-          Already not have any account?
+          Already have account?
           <span
             className="text-[#2190ff] pl-1 cursor-pointer"
             onClick={() => setActiveState("Login")}
           >
-            signup
+            Login
           </span>
         </h5>
         <br />

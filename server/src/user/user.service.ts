@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
@@ -24,8 +24,8 @@ export class UserService {
         password: undefined,
       };
     } catch (error) {
-      console.error('Error during user creation:', error);
-      throw error;
+      
+      throw new InternalServerErrorException('Email already exist'); ;
     }
   }
  

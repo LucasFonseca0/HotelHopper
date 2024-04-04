@@ -4,15 +4,15 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthRequest } from './models/authRequest';
 import { IsPublic } from './decorators/is-public.decorator';
 
-@Controller('')
+@Controller('login')
 export class AuthController {
     constructor(private readonly authService:AuthService){ }
+    @Post('')
     @IsPublic()
-    @Post('login')
     @HttpCode(HttpStatus.OK)
     @UseGuards(LocalAuthGuard)
     login(@Request() req:AuthRequest){     
-
+        
     return this.authService.login(req.user)
     } 
 }

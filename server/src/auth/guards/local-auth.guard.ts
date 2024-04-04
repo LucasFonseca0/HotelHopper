@@ -12,6 +12,7 @@ import {
     }
   
     handleRequest(err, user) {
+      
       if (err || !user) {
         throw new UnauthorizedException(err?.message);
       }

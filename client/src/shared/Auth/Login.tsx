@@ -1,3 +1,4 @@
+import { LoginUser } from "@/src/api/userAPI";
 import styles from "@/src/utils/style";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -34,7 +35,22 @@ const Login = ({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: LoginSchema) => {};
+  const onSubmit = async (data: LoginSchema) => {
+    setIsLoading(true)
+    try {
+      const JWTToken = await LoginUser(data)
+      toast.success("signup succeful")
+      console.log(JWTToken)
+      Cookies.set("access_token",JWTToken.access_token );
+      setOpen(false);
+      reset();
+      window.location.reload()
+    } catch (error: any) {
+      console.log(error)
+      toast.error(error.response.data.message);
+    }
+    setIsLoading(false)
+  };
 
   return (
     <div>
