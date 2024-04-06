@@ -57,21 +57,21 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
                 <span className="font-bold">Type:</span> {roomDetails.type}
               </h2>
               <p>
-                <span className="font-bold">Capacity:</span>{" "}
+                <span className="font-bold">Capacity:</span>
                 {roomDetails.capacity}
               </p>
               {roomDetails?.amenities && (
                 <p className="text-wrap">
-                  <span className="font-bold">Amenities:</span>{" "}
+                  <span className="font-bold">Amenities:</span>
                   {roomDetails.amenities.map((data) => `${data} `)}
                 </p>
               )}
               <p>
-                <span className="font-bold">Description:</span>{" "}
+                <span className="font-bold">Description:</span>
                 {roomDetails.description}
               </p>
               <p>
-                <span className="font-bold">Price:</span> €{roomDetails.price}{" "}
+                <span className="font-bold">Price:</span> €{roomDetails.price}
                 per night
               </p>
               <Button
@@ -83,8 +83,8 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
             </div>
           </>
           )}
-          {isOpen && (
-            <BookModal  isOpen={isOpen} onClose={onClose}/>
+          {isOpen && roomDetails && (
+            <BookModal  roomPrice={roomDetails.price}isOpen={isOpen} onClose={onClose}/>
             )}
         </div>
       </div>

@@ -7,13 +7,14 @@ import { APP_GUARD } from '@nestjs/core';
 
 import { AppController } from './app.controller';
 import { HotelModule } from './hotel/hotel.module';
+import { OrderModule } from './order/order.module';
 
 
 
 require('dotenv').config();
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.DB_URI), AuthModule, UserModule, HotelModule],
+  imports: [MongooseModule.forRoot(process.env.DB_URI), AuthModule, UserModule, HotelModule, OrderModule],
   controllers: [AppController],
   providers:[ 
     {
