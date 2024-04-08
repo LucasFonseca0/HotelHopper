@@ -74,15 +74,20 @@ const BookModal = ({
                   startDate={startDate}
                   endDate={endDate}
                   selectsRange
-                  selectsDisabledDaysInRange
                   inline
                 />
               </div>
               <aside className="[&>p>span]:font-bold  flex flex-col sm:gap-5">
-                <p><span>check-in:</span> {firstNight}</p>
-                <p><span>check-out(morning):</span> {lastNight}</p>
+                <p>
+                  <span>check-in:</span> {firstNight}
+                </p>
+                <p>
+                  <span>check-out(morning):</span> {lastNight}
+                </p>
 
-                <p><span>Price</span> €{totalPrice}</p>
+                <p>
+                  <span>Price</span> €{totalPrice}
+                </p>
               </aside>
             </ModalBody>
             <ModalFooter>
