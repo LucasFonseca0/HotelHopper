@@ -1,12 +1,10 @@
-import { User } from '../entities/user.entity';
 import {
-    IsBoolean,
   IsEmail,
   IsString,
-  Matches,
   MaxLength,
-  MinLength,
+  MinLength
 } from 'class-validator';
+import { User } from '../entities/user.entity';
 
 export class CreateUserDto extends User {
   @IsEmail()

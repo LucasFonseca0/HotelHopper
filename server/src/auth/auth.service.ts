@@ -15,11 +15,13 @@ export class AuthService {
   ) {}
 
   login(user: UserLogin): UserToken {
+ 
     const payload: UserPayload = {
+     _id:user._doc._id,
       email: user._doc.email,
       name: user._doc.name,
     };
-    console.log(user._doc)
+    
     const jwtToken = this.jwtService.sign(payload)
      
     return {

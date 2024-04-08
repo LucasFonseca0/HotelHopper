@@ -73,10 +73,6 @@ const BookModal = ({
                   onChange={onChange}
                   startDate={startDate}
                   endDate={endDate}
-                  excludeDates={[
-                    addDays(new Date(), 1),
-                    addDays(new Date(), 5),
-                  ]}
                   selectsRange
                   selectsDisabledDaysInRange
                   inline
