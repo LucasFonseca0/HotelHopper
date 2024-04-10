@@ -11,26 +11,41 @@ export class OrderService {
   ) {}
 
   async create(createOrderDto: CreateOrderDto, userId: string): Promise<Order> {
-    const newOrder = new this.orderModel({
-      ...createOrderDto,
-      user: userId,
-    });
-    return await newOrder.save();
+    try {
+      const newOrder = new this.orderModel({
+        ...createOrderDto,
+        user: userId,
+      });
+      return await newOrder.save();
+    } catch (error) {
+      console.error("Error creating order:", error);
+      throw error;
+    }
   }
   
   async findAll(userId: string): Promise<Order[]> {
-    const orders = await this.orderModel.find({ user: userId }).populate('user').populate('hotel').exec();
-    if (!orders) {
-      throw new NotFoundException('Orders not found');
+    try {
+      const orders = await this.orderModel.find({ user: userId }).populate('user').populate('hotel').exec();
+      if (!orders) {
+        throw new NotFoundException('Orders not found');
+      }
+      return orders;
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      throw error;
     }
-    return orders;
   }
   
   async findOne(id: string): Promise<Order> {
-    const order = await this.orderModel.findById(id).populate('user').populate('hotel').exec();
-    if (!order) {
-      throw new NotFoundException(`Order with ID ${id} not found`);
+    try {
+      const order = await this.orderModel.findById(id).populate('user').populate('hotel').exec();
+      if (!order) {
+        throw new NotFoundException(`Order with ID ${id} not found`);
+      }
+      return order;
+    } catch (error) {
+      console.error("Error fetching order:", error);
+      throw error;
     }
-    return order;
   }
 }
