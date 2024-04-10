@@ -4,7 +4,7 @@ import useUser from "@/src/hooks/useUser";
 import AuthScreen from "@/src/screens/AuthScreen";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { differenceInDays, format } from "date-fns";
+import { differenceInDays, format,addDays } from "date-fns";
 
 const BookModal = ({
   isOpen,
@@ -35,7 +35,16 @@ const BookModal = ({
   const onChange = (dates:any) => {
     const [start, end] = dates;
     setStartDate(start);
-    setEndDate(end || start);
+    setEndDate(end );
+    if (!end|| new Date(end).getTime() === new Date(start).getTime()) {
+      dates[1] = addDays(dates[0], 1)
+    }else{
+      dates[1] = addDays(dates[1], 1)
+    }
+    
+     
+      
+
 
     setPostOrderInformations((prev:OrderPost) => ({
       ...prev,
@@ -43,10 +52,10 @@ const BookModal = ({
     }));
   };
 
-  const totalDays = endDate ? differenceInDays(endDate, startDate) + 1 : 1;
+  const totalDays = endDate ? differenceInDays(endDate, startDate)+1  : 1;
   const totalPrice = roomPrice * totalDays;
   const firstNight = format(startDate, "yyyy-MM-dd");
-  const lastNight = endDate ? format(endDate, "yyyy-MM-dd") : firstNight;
+  const lastNight = endDate ? format(addDays(endDate,1), "yyyy-MM-dd") : format(addDays(startDate,1), "yyyy-MM-dd");
 
   return (
     <>

@@ -52,6 +52,8 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
       return
     }
     
+    
+    setIsLoading(true)
     try {
       const tryCreateOrder = await createOrder(postOrderInformations)
       if(tryCreateOrder){
@@ -61,6 +63,8 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
     } catch (error:any) {
       toast.error(error.response.data.message);
     }
+    setIsLoading(false)
+
 }
 
 

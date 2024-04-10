@@ -9,26 +9,7 @@ import ProfileDropdown from './ProfileDropdown';
 
 const Header = () => {
 
-  const dropdownItens = [
-    {
-      key: "new",
-      label: "New file",
-    },
-    {
-      key: "copy",
-      label: "Copy link",
-    },
-    {
-      key: "edit",
-      label: "Edit file",
-    },
-    {
-      key: "log  out",
-      label: "Delete file",
-    }
-  ];
-
-  
+ 
 
   return (
     <header className='w-full  bg-primary '>

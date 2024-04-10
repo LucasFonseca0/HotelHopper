@@ -61,7 +61,7 @@ const ProfileDropdown = () => {
               <p className="font-semibold">{user!.email}</p>
             </DropdownItem>
             <DropdownItem key="settings">My Profile</DropdownItem>
-            <DropdownItem key="all_orders">All orders</DropdownItem>
+            <DropdownItem key="all_orders" href="/orders">All orders</DropdownItem>
             <DropdownItem key="team_settings">
               Apply for seller account
             </DropdownItem>
