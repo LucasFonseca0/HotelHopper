@@ -23,13 +23,24 @@ export class OrderService {
     }
   }
   
-  async findAll(userId: string): Promise<Order[]> {
+  async findAll(userId: string): Promise<OrderPopulated[]> {
     try {
-      const orders = await this.orderModel.find({ user: userId }).populate('user').populate('hotel').exec();
+      const orders:any[] = await this.orderModel.find({ user: userId }).populate('user').populate('hotel').exec();
+      const OrderWithHotelRoomsFiltered:OrderPopulated[] = orders.map((data:any,index)=>{
+  
+        const dataCopy = JSON.parse(JSON.stringify(data));
+      
+        dataCopy.hotel.rooms = dataCopy.hotel.rooms.filter((room:Room) => room.room_number === dataCopy.room_number);
+      
+        return dataCopy;
+      })
+     
+      
+     
       if (!orders) {
         throw new NotFoundException('Orders not found');
       }
-      return orders;
+      return OrderWithHotelRoomsFiltered;
     } catch (error) {
       console.error("Error fetching orders:", error);
       throw error;
@@ -42,6 +53,7 @@ export class OrderService {
       if (!order) {
         throw new NotFoundException(`Order with ID ${id} not found`);
       }
+      
       return order;
     } catch (error) {
       console.error("Error fetching order:", error);

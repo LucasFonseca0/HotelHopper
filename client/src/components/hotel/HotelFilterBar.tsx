@@ -24,13 +24,14 @@ const HotelFilterBar = ({
 
   return (
     <div className="sticky top-0 bg-transparentBg z-10">
-      <nav className="h-20 w-full flex justify-center p-2 gap-2">
+      <nav className="h-20 w-full flex justify-strart p-2 gap-2">
         <Select
-          className="max-w-xs"
+          className="max-w-xl bf-"
           label="Select country"
           selectionMode="multiple"
           selectedKeys={countries}
           onSelectionChange={setCountries}
+          color="primary"
         >
           {locations.map((location) => (
             <SelectItem
@@ -51,11 +52,12 @@ const HotelFilterBar = ({
           ))}
         </Select>
         <Select
-          className="max-w-xs"
+          className="max-w-xl"
           label="Select price range"
           selectionMode="multiple"
           selectedKeys={priceRange}
           onSelectionChange={setPriceRange}
+          color="primary"
         >
           {PricesRange.map((price) => (
             <SelectItem
@@ -67,6 +69,7 @@ const HotelFilterBar = ({
                   ? `${price.min}-${price.max}`
                   : `>${price.min}`
               }
+              
             >
               {price.min == 0 && `<${price.max}`}
               {price.min > 0 &&
