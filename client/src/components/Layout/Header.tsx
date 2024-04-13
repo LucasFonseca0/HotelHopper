@@ -1,9 +1,7 @@
 "use client"
 
-import styles from '@/src/utils/style'
-import { Avatar } from '@nextui-org/react'
-import Link from 'next/link'
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+import styles from '@/src/utils/style';
+import Link from 'next/link';
 import ProfileDropdown from './ProfileDropdown';
 
 

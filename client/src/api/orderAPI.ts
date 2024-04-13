@@ -25,6 +25,7 @@ export async function createOrder(orderData:OrderPost) {
 }
 
 export async function getAllOrders() {
+  
   try {
     const response = await axiosInstance.get("");
     return response.data;

@@ -26,11 +26,17 @@ export class OrderService {
   async findAll(userId: string): Promise<OrderPopulated[]> {
     try {
       const orders:any[] = await this.orderModel.find({ user: userId }).populate('user').populate('hotel').exec();
-      const OrderWithHotelRoomsFiltered:OrderPopulated[] = orders.map((data:any,index)=>{
+      const OrderWithHotelRoomsFiltered:OrderPopulated[] = orders.map((data:OrderPopulated,index)=>{
   
         const dataCopy = JSON.parse(JSON.stringify(data));
       
         dataCopy.hotel.rooms = dataCopy.hotel.rooms.filter((room:Room) => room.room_number === dataCopy.room_number);
+
+        dataCopy.user = {
+          name: data.user.name,
+          _id: data.user._id,
+          email:data.user.email
+        }
       
         return dataCopy;
       })

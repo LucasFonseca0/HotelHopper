@@ -9,3 +9,11 @@ interface Order {
     hoteL:Hotel
     room_number:string
 }
+
+interface OrderPopulated{
+    _id:string
+    room_number:string
+    hotel:Hotel
+    Date:Date
+    user:UserInfo
+}
