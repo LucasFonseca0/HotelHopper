@@ -14,6 +14,6 @@ interface OrderPopulated{
     _id:string
     room_number:string
     hotel:Hotel
-    Date:Date
+    Date:Date[]
     user:UserInfo
 }

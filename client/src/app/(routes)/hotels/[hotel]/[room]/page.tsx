@@ -8,11 +8,14 @@ import Header from "@/src/components/Layout/Header";
 import LoadingSpinner from "@/src/shared/Loading/LoadingSpinner";
 import styles from "@/src/utils/style";
 import { Button, useDisclosure } from "@nextui-org/react";
+
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Page = ({ params }: { params: { hotel: string; room: string } }) => {
+  const router = useRouter()
   const [roomDetails, setRoomDetails] = useState<Room | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -51,13 +54,12 @@ const Page = ({ params }: { params: { hotel: string; room: string } }) => {
       toast.error("Select a data range")
       return
     }
-    
-    
     setIsLoading(true)
     try {
       const tryCreateOrder = await createOrder(postOrderInformations)
       if(tryCreateOrder){
         toast.success("Booking successful!")
+        router.push('/orders');
       }
       onClose()
     } catch (error:any) {
