@@ -1,19 +1,17 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
   Query,
 } from '@nestjs/common';
-import { HotelService } from './hotel.service';
+import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 import { CreateHotelDto } from './dto/create-hotel.dto';
 import { UpdateHotelDto } from './dto/update-hotel.dto';
-import { IsPublic } from 'src/auth/decorators/is-public.decorator';
-import { HotelFiltersDto } from './dto/hotel-filters.dto';
-import { ObjectId } from 'mongoose';
+import { HotelService } from './hotel.service';
 
 @Controller('hotel')
 export class HotelController {

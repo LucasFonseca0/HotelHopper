@@ -16,6 +16,12 @@ export class Order {
   @Prop({ required: true })
   Date: Date[];
 
+  constructor(order?:Partial<Order>){
+    this?.room_number
+    this?.hotel
+    this?.user
+    this?.Date
+  }
 }
 
 export const OrderSchema = SchemaFactory.createForClass(Order);
