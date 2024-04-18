@@ -1,22 +1,17 @@
 FROM node:16-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src
 
 COPY package*.json ./
 
 RUN npm install
 
+
 COPY . .
 
-# Altere o proprietário e o grupo do diretório /usr/src/app para o usuário node
-RUN chown -R node:node /usr/src/app
-
-# Altere as permissões do diretório /usr/src/app para permitir que o usuário node leia, escreva e execute arquivos
-RUN chmod 755 /usr/src/app
-
-# Alterne para o usuário node para os comandos subsequentes
+RUN chown -R node:node /usr/src/
 USER node
 
 EXPOSE 8000
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start"]
