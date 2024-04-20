@@ -48,6 +48,14 @@ To start the backend server:
 
 ## Frontend
 
+### Starting the Frontend
+
+To start the frontend application:
+
+1. Navigate to the client directory: `cd client`.
+2. Install the dependencies: `npm install`.
+3. Start the development server: `npm run start`.
+
 ### Routes
 
 - `/`: Home page.
@@ -91,7 +99,7 @@ To start the backend server:
 - NestJS
 - Docker
 - MongoDB
-- Mongoose (ORM)
+- Mongoose 
 
 ## Contribution
 
