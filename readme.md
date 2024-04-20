@@ -2,6 +2,10 @@
 
 Hotel Hopper is a full-stack application that allows users to browse hotels, make reservations, and manage their orders. It provides both a backend API built with NestJS and MongoDB and a frontend application developed with Next.js, TypeScript, Tailwind CSS, Next UI, and Zod for validation.
 
+![alt text](readmeImages/image.png)
+![alt text](readmeImages/image2.png)
+
+
 ## Backend
 
 ### Controllers
@@ -47,7 +51,6 @@ To start the backend server:
 3. Run the Docker container: `docker run -p 8000:8000 hotelhopper-image`.
 
 ## Frontend
-
 ### Starting the Frontend
 
 To start the frontend application:
